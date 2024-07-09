@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Home</title>
+
+          <style>
+                    :root {
+                              --background-dodger-blue: #6da9ea;
+                              --background-pale-robin-egg-blue: #ade4db;
+                              --text-dark-gray: #222;
+                              --text-dark-orange: #f6ba6f;
+                              --text-slightly-darker-orange: #f0a246;
+                    }
+
+                    body {
+                              background-color: var(--background-dodger-blue);
+                              /* Light Coral */
+                              color: var(--text-dark-gray);
+                              /* Dodger Blue */
+                              font-family: Arial, sans-serif;
+                    }
+
+                    /* header */
+                    .header {
+                              background-color: var(--background-dodger-blue);
+                              /* Dodger Blue */
+                              color: var(--text-dark-orange);
+                              /* Dark Orange */
+                              padding: 20px 0;
+                    }
+
+                    .header-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                    }
+
+                    .header-content {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              align-items: center;
+                    }
+
+                    .page {
+                              font-weight: 700;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              /* Dodger Blue */
+                              font-size: 24px;
+                    }
+
+                    .logo-icon {
+                              width: 40px;
+                              height: 40px;
+                              padding: 5px;
+                              background-color: var(--background-pale-robin-egg-blue);
+                              /* Pale Robin Egg Blue */
+                              border-radius: 50%;
+                    }
+
+                    .logo-text {
+                              margin-left: 10px;
+                    }
+
+                    .menu {
+                              display: flex;
+                              align-items: center;
+                    }
+
+                    .menu-link {
+                              margin-right: 20px;
+                              text-decoration: none;
+                              /* color: var(--background-dodger-blue); */
+                              color: var(--text-dark-gray);
+                              /* Dodger Blue */
+                              font-size: 18px;
+                              transition: color 0.3s;
+                    }
+
+                    .menu-link:hover {
+                              /* Dark Orange */
+                              cursor: pointer;
+                    }
+
+                    .task {
+                              display: none;
+                    }
+
+                    /* hero */
+                    .hero {
+                              background-color: var(--background-dodger-blue);
+                              /* Light Coral */
+                              /* color: var(--background-dodger-blue); */
+                              /* Dodger Blue */
+                              text-align: center;
+                              padding: 50px 0;
+                              border-radius: 1rem;
+                    }
+
+                    .sec-1-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                              display: flex;
+                              flex-wrap: wrap;
+                              align-items: center;
+                    }
+
+                    .image-container {
+                              flex: 1;
+                              max-width: 50%;
+                    }
+
+                    .hero-image {
+                              max-width: 100%;
+                              height: auto;
+                              border-radius: 5px;
+                    }
+
+                    .text-container {
+                              flex: 1;
+                              max-width: 50%;
+                              text-align: left;
+                              padding: 20px;
+                    }
+
+                    .hero-title {
+                              font-size: 24px;
+                              font-weight: bold;
+                              margin-bottom: 20px;
+                    }
+
+                    .hero-description {
+                              font-size: 18px;
+                              line-height: 1.5;
+                              margin-bottom: 30px;
+                    }
+
+                    .button-container {
+                              display: flex;
+                              justify-content: center;
+                    }
+
+                    .primary-button {
+                              background-color: var(--text-dark-orange);
+                              /* Dark Orange */
+                              color: var(--text-dark-gray);
+                              border: none;
+                              padding: 10px 20px;
+                              font-size: 20px;
+                              border-radius: 5px;
+                              cursor: pointer;
+                              transition: background-color 0.3s;
+                              margin-right: 10px;
+                              text-decoration: none;
+                    }
+
+                    .primary-button:hover {
+                              background-color: var(--text-slightly-darker-orange);
+                              /* Slightly Darker Orange */
+                    }
+
+                    /* sec-2 */
+                    .stats-section {
+                              background-color: var(--background-pale-robin-egg-blue);
+                              /* Pale Robin Egg Blue */
+                              /* color: var(--background-dodger-blue); */
+                              /* Dodger Blue */
+                              padding: 30px 0;
+                    }
+
+                    .sec-2-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                    }
+
+                    .content-container {
+                              display: flex;
+                              flex-wrap: wrap;
+                              align-items: center;
+                    }
+
+                    .info-column {
+                              flex: 1;
+                              max-width: 50%;
+                    }
+
+                    .info-item {
+                              padding: 20px;
+                              text-align: center;
+                    }
+
+                    .section-title {
+                              font-size: 24px;
+                              font-weight: bold;
+                              margin-bottom: 20px;
+                    }
+
+                    .info-description {
+                              font-size: 18px;
+                              line-height: 1.5;
+                    }
+
+                    .image-column {
+                              flex: 1;
+                              max-width: 50%;
+                              overflow: hidden;
+                    }
+
+                    .stats-image {
+                              max-width: 100%;
+                              height: auto;
+                    }
+
+                    /* footer */
+                    .footer {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              /* Dodger Blue */
+                              padding: 20px 0;
+                              /* border-radius: 1rem; */
+                    }
+
+                    .footer-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                              display: flex;
+                              align-items: center;
+                              flex-direction: column;
+                              text-align: center;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                    }
+
+                    .icon {
+                              fill: none;
+                              /* stroke: var(--background-dodger-blue); */
+                              /* Dodger Blue */
+                              stroke-width: 2;
+                    }
+
+                    .text {
+                              color: var(--text-dark-gray);
+                              margin-left: 10px;
+                              font-size: 20px;
+                              font-weight: bold;
+                    }
+
+                    .copyright-text {
+                              font-size: 14px;
+                              margin-top: 10px;
+                    }
+
+                    .twitter-link {
+                              color: var(--text-dark-gray);
+                              /* Dodger Blue */
+                              text-decoration: none;
+                              margin-left: 5px;
+                    }
+
+                    @media screen and (max-width: 768px) {
+                              .header-content {
+                                        flex-direction: column;
+                                        margin: 2% 1%;
+                              }
+
+                              .menu {
+                                        padding: 1%;
+                                        margin: 2%;
+                              }
+
+                              .sec-1-container {
+                                        flex-direction: column;
+                              }
+
+                              .hero-title {
+                                        font-size: 20px;
+                              }
+
+                              .hero-description {
+                                        font-size: 16px;
+                              }
+
+                              .button-container {
+                                        flex-direction: column;
+                                        align-items: center;
+                              }
+
+                              .primary-button {
+                                        margin: 10px 0;
+                              }
+
+                              .footer-container {
+                                        flex-direction: column;
+                              }
+
+                              .text {
+                                        font-size: 16px;
+                              }
+
+                              .copyright-text {
+                                        font-size: 12px;
+                              }
+
+                              .social-icons {
+                                        margin-top: 10px;
+                              }
+                    }
+
+                    @media screen and (max-width: 768px) {
+                              .stats-section {
+                                        padding: 20px 0;
+                              }
+
+                              .sec-2-container {
+                                        max-width: 100%;
+                                        padding: 0 10px;
+                              }
+
+                              .content-container {
+                                        flex-direction: column;
+                              }
+
+                              .info-column {
+                                        max-width: 100%;
+                                        flex: 1;
+                              }
+
+                              .image-column {
+                                        max-width: 100%;
+                                        flex: 1;
+                              }
+
+                              .section-title {
+                                        font-size: 20px;
+                              }
+
+                              .info-description {
+                                        font-size: 16px;
+                              }
+
+                              .stats-image {
+                                        margin: 0 15%;
+                                        max-width: 70%;
+                              }
+                    }
+          </style>
+</head>
+
+<body>
+          <header class="header">
+                    <div class="header-container">
+                              <div class="header-content">
+                                        <a class="logo">
+                                                  <span class="logo-text">SkillSync.com</span>
+                                        </a>
+                                        <nav class="menu">
+                                                  <a href="home.html" class="menu-link page">Home Page</a>
+                                                  <a href="job-list.html" class="menu-link hover">Job Listings</a>
+                                                  <div class="task">
+                                                            <a href="task-jobs.html" class="menu-link">Task Based
+                                                                      Jobs</a>
+                                                  </div>
+                                                  <a href="p&p.html" class="menu-link">Privacy & Policy</a>
+                                                  <a href="t&c.html" class="menu-link">Terms & Conditions</a>
+                                        </nav>
+                              </div>
+                    </div>
+          </header>
+
+          <section class="hero">
+                    <div class="sec-1-container">
+                              <div class="image-container">
+                                        <img class="hero-image" alt="hero" src="IMAGES/HEADER.png">
+                              </div>
+                              <div class="text-container">
+                                        <h1 class="hero-title">"Connecting Careers, Building Futures: Your Gateway to
+                                                  Opportunity."</h1>
+                                        <p class="hero-description"></p>
+                                        <div class="button-container">
+                                                  <a href="job-list.html" class="primary-button">Button</a>
+                                                  <!-- <button class="secondary-button">Button</button> -->
+                                        </div>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="stats-section">
+                    <div class="sec-2-container">
+                              <div class="content-container">
+                                        <div class="info-column">
+                                                  <div class="info-item">
+                                                            <h1 class="section-title">Career Constellations Unveiled
+                                                            </h1>
+                                                            <div class="info-description">Embark on a professional
+                                                                      odyssey with Moon Hashtag Pop-up. Pour-over your
+                                                                      skills in this craft beer of opportunities. Join
+                                                                      2.7K frequent users, 1.8K subscribers, 35
+                                                                      successful hires, and 4 standout talents.
+                                                                      Illuminate your career path under the Moon! 🌌🚀
+                                                            </div>
+                                                  </div>
+                                                  <div class="info-item">
+                                                            <h2 class="info-title">2.7K</h2>
+                                                            <p class="info-description">Frequent Users</p>
+                                                  </div>
+                                                  <div class="info-item">
+                                                            <h2 class="info-title">1.8K</h2>
+                                                            <p class="info-description">Subscribers</p>
+                                                  </div>
+                                                  <div class="info-item">
+                                                            <h2 class="info-title">35</h2>
+                                                            <p class="info-description">Downloads</p>
+                                                  </div>
+                                                  <div class="info-item">
+                                                            <h2 class="info-title">4</h2>
+                                                            <p class="info-description">Products</p>
+                                                  </div>
+                                        </div>
+                                        <div class="image-column">
+                                                  <img class="stats-image" src="IMAGES/HEAD.png" alt="stats">
+                                        </div>
+                              </div>
+                    </div>
+          </section>
+
+          <footer class="footer">
+                    <div class="footer-container">
+                              <a class="logo">
+                                        <span class="text">SkillSync.com</span>
+                              </a>
+                              <p class="copyright-text">© 2023 SkillSync —
+                                        <a href="#" class="twitter-link" rel="noopener noreferrer">@aryanlathigara</a>
+                              </p>
+                    </div>
+          </footer>
+
+</body>
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+          $(document).ready(function () {
+                    $(".hover").hover(function () {
+                              $(".task").show(1500);
+                    });
+
+                    var i = 0;
+                    var txt = "Unlock your professional journey with Freelance.com. We bridge talent with opportunities, providing a seamless platform where employers meet skilled individuals. Elevate your career aspirations—your future begins here.";
+                    var speed = 50;
+
+                    function typeWriter() {
+                              if (i < txt.length) {
+                                        $(".hero-description").append(txt.charAt(i));
+                                        i++;
+                                        setTimeout(typeWriter, speed);
+                              }
+                    }
+
+                    typeWriter();
+
+                    $(".header").hide().fadeIn(1500);
+
+                    $(".footer").hide().slideDown();
+          });
+
+</script>
+
+</html>

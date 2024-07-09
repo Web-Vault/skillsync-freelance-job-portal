@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Task Based Job-listings</title>
+
+          <style>
+                    :root {
+                              --background-dodger-blue: #6da9ea;
+                              --background-pale-robin-egg-blue: #ade4db;
+                              --text-dark-gray: #222;
+                              --text-dark-orange: #f6ba6f;
+                              --text-slightly-darker-orange: #f0a246;
+                    }
+
+                    body {
+                              background-color: var(--background-dodger-blue);
+                    }
+
+                    .header {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              padding: 20px 0;
+                    }
+
+                    .header-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                    }
+
+                    .header-content {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              align-items: center;
+                    }
+
+                    .page {
+                              font-weight: 700;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              font-size: 24px;
+                    }
+
+                    .logo-icon {
+                              width: 40px;
+                              height: 40px;
+                              padding: 5px;
+                              /* background-color: #3f51b5; */
+                              border-radius: 50%;
+                    }
+
+                    .logo-text {
+                              margin-left: 10px;
+                    }
+
+                    .menu {
+                              display: flex;
+                              align-items: center;
+                    }
+
+                    .menu-link {
+                              margin-right: 20px;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              font-size: 18px;
+                              transition: color 0.3s;
+                    }
+
+                    .menu-link:hover {
+                              /* color: #3f51b5; */
+                              cursor: pointer;
+                    }
+
+                    .task {
+                              display: none;
+                    }
+
+                    /*  */
+
+                    .main-section {
+                              background-color: var(--background-dodger-blue);
+                              font-family: Arial, sans-serif;
+                    }
+
+                    .bg {
+                              border-radius: 1rem;
+                              background-color: var(--background-pale-robin-egg-blue);
+                              /* color: #f5f5f5; */
+                    }
+
+                    .bg .card {
+                              border: 1px solid var(--background-dodger-blue);
+                              /* color: #f5f5f5; */
+                    }
+
+                    .container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 2rem;
+                    }
+
+                    .section-header {
+                              text-align: center;
+                              margin-bottom: 20px;
+                    }
+
+                    .section-title {
+                              font-size: 2rem;
+                              font-weight: 600;
+                              color: var(--text-dark-gray);
+                    }
+
+                    .section-description {
+                              max-width: 75%;
+                              margin: 0 auto;
+                              line-height: 1.5;
+                              color: #666;
+                    }
+
+                    .card-grid {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: center;
+                              gap: 20px;
+                    }
+
+                    .card {
+                              flex: 1;
+                              border: 2px solid #0e0e0e;
+                              border-radius: 10px;
+                              padding: 1.5rem;
+                              text-align: center;
+                    }
+
+                    .card-content {
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                    }
+
+                    .icon {
+                              fill: none;
+                              stroke: currentColor;
+                              stroke-linecap: round;
+                              stroke-linejoin: round;
+                              stroke-width: 2;
+                              width: 60px;
+                              height: 60px;
+                              margin-bottom: 0.5rem;
+                    }
+
+                    .card-title {
+                              font-size: 1.5rem;
+                              font-weight: 600;
+                              color: var(--text-dark-gray);
+                    }
+
+                    .card-description {
+                              font-size: 1rem;
+                              color: #666;
+                    }
+
+                    .upload {
+                              /* border: 1px solid black; */
+                              margin: 2% 0;
+                              padding: 1%;
+                              display: flex;
+                              justify-content: right;
+                              gap: 5%;
+                    }
+
+                    .bg .submit {
+                              background-color: var(--background-dodger-blue);
+                    }
+
+                    .submit {
+                              background-color: var(--background-pale-robin-egg-blue);
+                              padding: 10px 20px;
+                              font-size: 20px;
+                              border-radius: 5px;
+                              cursor: pointer;
+                              border: none;
+                              color: #fff;
+                    }
+
+                    .primary-button {
+                              /* background-color: #eee; */
+                              color: #000;
+                              border: none;
+                              padding: 10px 20px;
+                              font-size: 20px;
+                              border-radius: 5px;
+                              cursor: pointer;
+                              transition: background-color 0.3s;
+                    }
+
+                    .primary-button:hover {
+                              background-color: var(--background-pale-robin-egg-blue);
+                              color: #fff;
+                    }
+
+                    .bg .primary-button {
+                              background-color: var(--background-pale-robin-egg-blue);
+                              color: #fff;
+                    }
+
+                    .bg .primary-button:hover {
+                              background-color: var(--background-dodger-blue);
+                    }
+
+                    /*  */
+
+                    .footer {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              padding: 20px 0;
+                              border-radius: 1rem;
+                    }
+
+                    .footer-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                              display: flex;
+                              align-items: center;
+                              flex-direction: column;
+                              text-align: center;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                    }
+
+                    .text {
+                              margin-left: 10px;
+                              font-size: 20px;
+                              font-weight: bold;
+                    }
+
+                    .copyright-text {
+                              font-size: 14px;
+                              margin-top: 10px;
+                    }
+
+                    .twitter-link {
+                              color: var(--text-dark-gray);
+                              text-decoration: none;
+                              margin-left: 5px;
+                    }
+
+                    .social-icons {
+                              margin-top: 10px;
+                    }
+
+                    .icon-link {
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              margin-left: 10px;
+                    }
+
+                    .social-icon {
+                              width: 20px;
+                              height: 20px;
+                    }
+          </style>
+</head>
+
+<body>
+          <header class="header">
+                    <div class="header-container">
+                              <div class="header-content">
+                                        <a class="logo">
+                                                  <span class="logo-text">SkillSync.com</span>
+                                        </a>
+                                        <nav class="menu">
+                                                  <a href="home.html" class="menu-link">Home Page</a>
+                                                  <a href="task-jobs.html" class="menu-link hover page">Task Based
+                                                            Jobs</a>
+                                                  <div class="task">
+                                                            <a href="job-list.html" class="menu-link">Job Listings</a>
+                                                  </div>
+                                                  <a href="p&p.html" class="menu-link">Privacy & Policy</a>
+                                                  <a href="t&c.html" class="menu-link">Terms & Conditions</a>
+                                        </nav>
+                              </div>
+                    </div>
+          </header>
+
+          <section class="main-section bg">
+                    <div class="container">
+                              <div class="section-header">
+                                        <h1 class="section-title">FreelanceFlex Hub:</h1>
+                                        <p class="section-description">Your go-to platform for flexible freelancing
+                                                  opportunities. FreelanceFlex Hub connects skilled professionals with
+                                                  diverse projects, fostering a dynamic marketplace where talent and
+                                                  innovation converge.</p>
+                              </div>
+
+                              <div class="section-header">
+                                        <h3 class="header-title"><strong> Requirement :</strong> A Webpage</h3>
+                                        <p class="section-description">Revamp your digital presence with our bespoke web
+                                                  design service. Tailored layouts, seamless navigation, and SEO
+                                                  optimization ensure an engaging and functional site. Elevate your
+                                                  brand online with us.</p>
+
+                              </div>
+                              <div class="card-grid">
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                                                                      <path
+                                                                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">DataBase</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2">
+                                                                      </path>
+                                                                      <circle cx="9" cy="7" r="4"></circle>
+                                                                      <path
+                                                                                d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Related Content</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+                                                                      <path
+                                                                                d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Required Media</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path
+                                                                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Copyrighted-Content</p>
+                                                  </div>
+                                        </div>
+                              </div>
+
+                              <div class="upload">
+                                        <form action="">
+                                                  <input type="file" name="file" id="file" class="primary-button">
+
+                                                  <input type="submit" value="Submit" class="submit">
+                                        </form>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="main-section">
+                    <div class="container">
+                              <div class="section-header">
+                                        <h1 class="section-title">TaskTrove Freelance Network:</h1>
+                                        <p class="section-description">Unlock a trove of opportunities with TaskTrove.
+                                                  This freelancing network seamlessly matches freelancers with tasks,
+                                                  creating a collaborative space where skills meet demands, and projects
+                                                  find their perfect match..</p>
+                              </div>
+
+                              <div class="section-header">
+                                        <h3 class="header-title"><strong> Requirement :</strong> A Webpage</h3>
+                                        <p class="section-description">Revamp your digital presence with our bespoke web
+                                                  design service. Tailored layouts, seamless navigation, and SEO
+                                                  optimization ensure an engaging and functional site. Elevate your
+                                                  brand online with us.</p>
+
+                              </div>
+                              <div class="card-grid">
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                                                                      <path
+                                                                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">DataBase</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2">
+                                                                      </path>
+                                                                      <circle cx="9" cy="7" r="4"></circle>
+                                                                      <path
+                                                                                d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Related Content</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+                                                                      <path
+                                                                                d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Required Media</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path
+                                                                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Copyrighted-Content</p>
+                                                  </div>
+                                        </div>
+                              </div>
+
+                              <div class="upload">
+                                        <form action="">
+                                                  <input type="file" name="file" id="file" class="primary-button">
+
+                                                  <input type="submit" value="Submit" class="submit">
+                                        </form>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="main-section bg">
+                    <div class="container">
+                              <div class="section-header">
+                                        <h1 class="section-title">GigGenius Marketplace:</h1>
+                                        <p class="section-description">Experience the genius of freelancing at GigGenius
+                                                  Marketplace. We curate a space where freelancers showcase their
+                                                  talents, and businesses discover skilled professionals to bring their
+                                                  projects to life.</p>
+                              </div>
+
+                              <div class="section-header">
+                                        <h3 class="header-title"><strong> Requirement :</strong> A Webpage</h3>
+                                        <p class="section-description">Revamp your digital presence with our bespoke web
+                                                  design service. Tailored layouts, seamless navigation, and SEO
+                                                  optimization ensure an engaging and functional site. Elevate your
+                                                  brand online with us.</p>
+
+                              </div>
+                              <div class="card-grid">
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                                                                      <path
+                                                                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">DataBase</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2">
+                                                                      </path>
+                                                                      <circle cx="9" cy="7" r="4"></circle>
+                                                                      <path
+                                                                                d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Related Content</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+                                                                      <path
+                                                                                d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Required Media</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path
+                                                                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Copyrighted-Content</p>
+                                                  </div>
+                                        </div>
+                              </div>
+
+                              <div class="upload">
+                                        <form action="">
+                                                  <input type="file" name="file" id="file" class="primary-button">
+
+                                                  <input type="submit" value="Submit" class="submit">
+                                        </form>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="main-section">
+                    <div class="container">
+                              <div class="section-header">
+                                        <h1 class="section-title">HustleHarbor Freelance Co.:</h1>
+                                        <p class="section-description">Navigate the seas of freelancing with
+                                                  HustleHarbor. Our platform provides a safe harbor for freelancers
+                                                  seeking gigs and businesses in search of top-notch talent, fostering a
+                                                  community of collaboration and success.</p>
+                              </div>
+
+                              <div class="section-header">
+                                        <h3 class="header-title"><strong> Requirement :</strong> A Webpage</h3>
+                                        <p class="section-description">Revamp your digital presence with our bespoke web
+                                                  design service. Tailored layouts, seamless navigation, and SEO
+                                                  optimization ensure an engaging and functional site. Elevate your
+                                                  brand online with us.</p>
+
+                              </div>
+                              <div class="card-grid">
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                                                                      <path
+                                                                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">DataBase</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2">
+                                                                      </path>
+                                                                      <circle cx="9" cy="7" r="4"></circle>
+                                                                      <path
+                                                                                d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Related Content</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+                                                                      <path
+                                                                                d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Required Media</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path
+                                                                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Copyrighted-Content</p>
+                                                  </div>
+                                        </div>
+                              </div>
+
+                              <div class="upload">
+                                        <form action="">
+                                                  <input type="file" name="file" id="file" class="primary-button">
+
+                                                  <input type="submit" value="Submit" class="submit">
+                                        </form>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="main-section bg">
+                    <div class="container">
+                              <div class="section-header">
+                                        <h1 class="section-title">SkillSail Freelance Network:</h1>
+                                        <p class="section-description"> Embark on a voyage of professional growth. Our
+                                                  platform seamlessly unites skilled freelancers with diverse
+                                                  opportunities, creating a dynamic and collaborative sea of talent.
+                                                  Navigate your career journey with SkillSail, where success sets sail.
+                                        </p>
+                              </div>
+
+                              <div class="section-header">
+                                        <h3 class="header-title"><strong> Requirement :</strong> A Webpage</h3>
+                                        <p class="section-description">Revamp your digital presence with our bespoke web
+                                                  design service. Tailored layouts, seamless navigation, and SEO
+                                                  optimization ensure an engaging and functional site. Elevate your
+                                                  brand online with us.</p>
+
+                              </div>
+                              <div class="card-grid">
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                                                                      <path
+                                                                                d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">DataBase</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2">
+                                                                      </path>
+                                                                      <circle cx="9" cy="7" r="4"></circle>
+                                                                      <path
+                                                                                d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Related Content</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+                                                                      <path
+                                                                                d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Required Media</p>
+                                                  </div>
+                                        </div>
+                                        <div class="card">
+                                                  <div class="card-content">
+                                                            <svg class="icon" viewBox="0 0 24 24">
+                                                                      <path
+                                                                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z">
+                                                                      </path>
+                                                            </svg>
+                                                            <p class="card-description">Copyrighted-Content</p>
+                                                  </div>
+                                        </div>
+                              </div>
+
+                              <div class="upload">
+                                        <form action="">
+                                                  <input type="file" name="file" id="file" class="primary-button">
+
+                                                  <input type="submit" value="Submit" class="submit">
+                                        </form>
+                              </div>
+                    </div>
+          </section>
+
+          <footer class="footer">
+                    <div class="footer-container">
+                              <a class="logo">
+                                        <span class="text">SkillSync.com</span>
+                              </a>
+                              <p class="copyright-text">© 2023 SkillSync —
+                                        <a href="#" class="twitter-link" rel="noopener noreferrer">@aryanlathigara</a>
+                              </p>
+                    </div>
+          </footer>
+
+</body>
+
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+          $(document).ready(function () {
+                    $(".hover").hover(function () {
+                              $(".task").show(1500);
+                    });
+
+                    var i = 0;
+                    var txt = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ad sapiente sit aliquid et. Aspernatur, et animi odio est voluptas laudantium dolores quo eos tempora adipisci? Consectetur reprehenderit accusantium dignissimos.";
+                    var speed = 100;
+
+                    function typeWriter() {
+                              if (i < txt.length) {
+                                        $(".hero-description").append(txt.charAt(i));
+                                        i++;
+                                        setTimeout(typeWriter, speed);
+                              }
+                    }
+
+                    typeWriter();
+
+                    $(".header").hide().fadeIn(1500);
+
+                    $(".footer").hide().slideDown(1000);
+          });
+</script>
+
+</html>

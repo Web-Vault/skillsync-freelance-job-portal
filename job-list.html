@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Listings</title>
+
+          <style>
+                    :root {
+                              --background-dodger-blue: #6da9ea;
+                              --background-pale-robin-egg-blue: #ade4db;
+                              --text-dark-gray: #222;
+                              --text-dark-orange: #f6ba6f;
+                              --text-slightly-darker-orange: #f0a246;
+                    }
+
+                    body {
+                              background-color: var(--background-dodger-blue);
+                    }
+
+                    .header {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              padding: 20px 0;
+                    }
+
+                    .header-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                    }
+
+                    .header-content {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              align-items: center;
+                    }
+
+                    .page {
+                              font-weight: 700;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              font-size: 24px;
+                    }
+
+                    .logo-icon {
+                              width: 40px;
+                              height: 40px;
+                              padding: 5px;
+                              border-radius: 50%;
+                    }
+
+                    .logo-text {
+                              margin-left: 10px;
+                    }
+
+                    .menu {
+                              display: flex;
+                              align-items: center;
+                    }
+
+                    .menu-link {
+                              margin-right: 20px;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              font-size: 18px;
+                              transition: color 0.3s;
+                    }
+
+                    .menu-link:hover {
+                              /* color: #3f51b5;   */
+                              cursor: pointer;
+                    }
+
+                    .task {
+                              display: none;
+                    }
+
+                    /*  */
+
+                    .section {
+                              color: var(--text-dark-gray);
+                              padding: 24px 0;
+                    }
+
+                    .bg {
+                              background-color: var(--background-pale-robin-egg-blue);
+                              border-radius: 1rem;
+                    }
+
+                    .job-container {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: center;
+                              align-items: center;
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                    }
+
+                    .content {
+                              /* display: flex; */
+                              flex-basis: 60%;
+                              /* margin: 1%; */
+                              flex-wrap: wrap;
+                              justify-content: flex-start;
+                              padding: 10px;
+                    }
+
+                    .content-left {
+                              flex: 2;
+                              padding: 10px;
+                    }
+
+                    .content-left>a {
+                              text-decoration: none;
+                    }
+
+                    .section-title {
+                              font-size: 24px;
+                              font-weight: bold;
+                              margin-bottom: 16px;
+                              color: var(--text-dark-gray);
+                              text-decoration: none;
+                    }
+
+                    .section-description {
+                              font-size: 16px;
+                              line-height: 1.6;
+                    }
+
+                    .content-right {
+                              flex: 1;
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              padding: 10px;
+                    }
+
+                    .stat {
+                              text-align: center;
+                              padding: 10px;
+                    }
+
+                    .stat-number {
+                              font-size: 36px;
+                              font-weight: bold;
+                    }
+
+                    .stat-label {
+                              font-size: 18px;
+                    }
+
+                    .image {
+                              flex: 1;
+                              overflow: hidden;
+                              border-radius: 8px;
+                    }
+
+                    .image-content {
+                              object-fit: cover;
+                              object-position: center;
+                              width: 100%;
+                              height: 100%;
+                              border-radius: 8px;
+                    }
+
+                    /* footer */
+                    .footer {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              padding: 20px 0;
+                              border-radius: 1rem;
+                    }
+
+                    .footer-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                              display: flex;
+                              align-items: center;
+                              flex-direction: column;
+                              text-align: center;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                    }
+
+                    .icon {
+                              fill: none;
+                              stroke: var(--text-dark-gray);
+                              stroke-width: 2;
+                    }
+
+                    .text {
+                              margin-left: 10px;
+                              font-size: 20px;
+                              font-weight: bold;
+                    }
+
+                    .copyright-text {
+                              font-size: 14px;
+                              margin-top: 10px;
+                    }
+
+                    .twitter-link {
+                              color: var(--text-dark-gray);
+                              text-decoration: none;
+                              margin-left: 5px;
+                    }
+
+                    .social-icons {
+                              margin-top: 10px;
+                    }
+
+                    .icon-link {
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              margin-left: 10px;
+                    }
+
+                    .social-icon {
+                              width: 20px;
+                              height: 20px;
+                    }
+
+                    /*  */
+
+                    /* media query */
+                    @media screen and (max-width: 768px) {
+                              .header-content {
+                                        flex-direction: column;
+                                        margin: 2% 1%;
+                              }
+
+                              .menu {
+                                        padding: 1%;
+                                        margin: 2%;
+                              }
+
+                              .footer-container {
+                                        flex-direction: column;
+                              }
+
+                              .text {
+                                        font-size: 16px;
+                              }
+
+                              .copyright-text {
+                                        font-size: 12px;
+                              }
+
+                              .social-icons {
+                                        margin-top: 10px;
+                              }
+
+                              .job-container {
+                                        flex-direction: column;
+                              }
+
+                              .content {
+                                        flex-basis: 100%;
+                              }
+
+                              .content-left,
+                              .content-right {
+                                        flex: 1;
+                              }
+
+                              .content-right {
+                                        flex-direction: column;
+                              }
+
+                              .image {
+                                        flex: 1;
+                                        margin-top: 10px;
+                              }
+                    }
+          </style>
+</head>
+
+<body>
+          <header class="header">
+                    <div class="header-container">
+                              <div class="header-content">
+                                        <a class="logo">
+                                                  <span class="logo-text">SkillSync.com</span>
+                                        </a>
+                                        <nav class="menu">
+                                                  <a href="home.html" class="menu-link">Home Page</a>
+                                                  <a href="job-list.html" class="menu-link hover page">Job Listings</a>
+                                                  <div class="task">
+                                                            <a href="task-jobs.html" class="menu-link">Task Based
+                                                                      Jobs</a>
+                                                  </div>
+                                                  <a href="p&p.html" class="menu-link">Privacy & Policy</a>
+                                                  <a href="t&c.html" class="menu-link">Terms & Conditions</a>
+                                        </nav>
+                              </div>
+                    </div>
+          </header>
+
+          <section class="section bg">
+                    <div class="job-container">
+                              <div class="content">
+                                        <div class="content-left">
+                                                  <a href="enroll.html">
+                                                            <h1 class="section-title"> <abbr title="click to Enroll">
+                                                                                TechVista Solutions </abbr>
+                                                            </h1>
+                                                  </a>
+                                                  <p class="section-description">Pioneering digital solutions, TechVista
+                                                            is at the forefront of innovation. We sculpt technology
+                                                            landscapes, delivering seamless experiences through
+                                                            cutting-edge software and dynamic IT solutions.</p>
+                                        </div>
+                                        <div class="content-right">
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">Python</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">2yrs</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">35</h2>
+                                                            <p class="stat-label">Vecants</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">4</h2>
+                                                            <p class="stat-label">Interns</p>
+                                                  </div>
+                                        </div>
+                              </div>
+                              <div class="image">
+                                        <img class="image-content" src="IMAGES/job-1.jpg" alt="stats">
+                              </div>
+                    </div>
+          </section>
+
+          <section class="section">
+                    <div class="job-container">
+                              <div class="image">
+                                        <img class="image-content" src="IMAGES/job-2.jpg" alt="stats">
+                              </div>
+                              <div class="content">
+                                        <div class="content-left">
+                                                  <a href="enroll.html">
+                                                            <h1 class="section-title"> <abbr title="click to Enroll">
+                                                                                CodeCraft Innovations</abbr>
+                                                            </h1>
+                                                  </a>
+                                                  <p class="section-description">Crafting excellence in every line of
+                                                            code, CodeCraft Innovations is your partner in
+                                                            transformative software development. We merge creativity
+                                                            with precision to engineer solutions that redefine
+                                                            technological landscapes.</p>
+                                        </div>
+                                        <div class="content-right">
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">Java / C++</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">2yrs</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">35</h2>
+                                                            <p class="stat-label">Vecants</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">4</h2>
+                                                            <p class="stat-label">Interns</p>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="section bg">
+                    <div class="job-container">
+                              <div class="content">
+                                        <div class="content-left">
+                                                  <a href="enroll.html">
+                                                            <h1 class="section-title"> <abbr title="click to Enroll">
+                                                                                ByteHarbor Technologies </abbr>
+                                                            </h1>
+                                                  </a>
+                                                  <p class="section-description">Navigating the digital waves,
+                                                            ByteHarbor Technologies is a beacon of tech prowess. We
+                                                            harbor solutions, ensuring clients sail smoothly through the
+                                                            currents of IT challenges with robust software and
+                                                            innovative technologies.</p>
+                                        </div>
+                                        <div class="content-right">
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">C Lang</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">2yrs</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">35</h2>
+                                                            <p class="stat-label">Vecants</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">4</h2>
+                                                            <p class="stat-label">Interns</p>
+                                                  </div>
+                                        </div>
+                              </div>
+                              <div class="image">
+                                        <img class="image-content" src="IMAGES/job-3.jpg" alt="stats">
+                              </div>
+                    </div>
+          </section>
+
+          <section class="section">
+                    <div class="job-container">
+                              <div class="image">
+                                        <img class="image-content" src="IMAGES/job-4.jpg" alt="stats">
+                              </div>
+                              <div class="content">
+                                        <div class="content-left">
+                                                  <a href="enroll.html">
+                                                            <h1 class="section-title"> <abbr title="click to Enroll">
+                                                                                Quantum Nexus Systems </abbr>
+                                                            </h1>
+                                                  </a>
+                                                  <p class="section-description">Quantum Nexus Systems propels
+                                                            businesses into the future, harnessing the power of quantum
+                                                            leaps in technology. Our systems redefine possibilities,
+                                                            unlocking a new era of efficiency and innovation.</p>
+                                        </div>
+                                        <div class="content-right">
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">Kotlin/Flutter</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">2yrs</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">35</h2>
+                                                            <p class="stat-label">Vecants</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">4</h2>
+                                                            <p class="stat-label">Interns</p>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="section bg">
+                    <div class="job-container">
+                              <div class="content">
+                                        <div class="content-left">
+                                                  <a href="enroll.html">
+                                                            <h1 class="section-title"> <abbr title="click to Enroll">
+                                                                                CyberSphere Solutions</abbr>
+                                                            </h1>
+                                                  </a>
+                                                  <p class="section-description">Safeguarding the digital realm,
+                                                            CyberSphere Solutions fortifies businesses against cyber
+                                                            threats. Our expert cybersecurity measures ensure a
+                                                            resilient defense, letting you navigate the digital
+                                                            landscape with confidence.
+
+                                                  </p>
+                                        </div>
+                                        <div class="content-right">
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">Python</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">2yrs</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">35</h2>
+                                                            <p class="stat-label">Vecants</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">4</h2>
+                                                            <p class="stat-label">Interns</p>
+                                                  </div>
+                                        </div>
+                              </div>
+                              <div class="image">
+                                        <img class="image-content" src="IMAGES/job-5.jpg" alt="stats">
+                              </div>
+                    </div>
+          </section>
+
+          <section class="section">
+                    <div class="job-container">
+                              <div class="image">
+                                        <img class="image-content" src="IMAGES/job-6.png" alt="stats">
+                              </div>
+                              <div class="content">
+                                        <div class="content-left">
+                                                  <a href="enroll.html">
+                                                            <h1 class="section-title"> <abbr title="click to Enroll">
+                                                                                InfinitiTech Labs </abbr>
+                                                            </h1>
+                                                  </a>
+                                                  <p class="section-description">InfinitiTech Labs is where boundless
+                                                            innovation meets practical solutions. We cultivate tech
+                                                            ideas into reality, offering a spectrum of services that
+                                                            drive businesses forward in the ever-evolving world of
+                                                            technology.</p>
+                                        </div>
+                                        <div class="content-right">
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">CMS</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">2yrs</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">35</h2>
+                                                            <p class="stat-label">Vecants</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">4</h2>
+                                                            <p class="stat-label">Interns</p>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="section bg">
+                    <div class="job-container">
+                              <div class="content">
+                                        <div class="content-left">
+                                                  <a href="enroll.html">
+                                                            <h1 class="section-title"> <abbr title="click to Enroll">
+                                                                                DataForge Technologies </abbr>
+                                                            </h1>
+                                                  </a>
+                                                  <p class="section-description">At DataForge Technologies, we forge
+                                                            data into valuable insights. Our cutting-edge analytics and
+                                                            data solutions empower businesses, transforming raw data
+                                                            into strategic assets for informed decision-making and
+                                                            sustained growth.</p>
+                                        </div>
+                                        <div class="content-right">
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">Linux</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">2yrs</h2>
+                                                            <p class="stat-label">Required</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">35</h2>
+                                                            <p class="stat-label">Vecants</p>
+                                                  </div>
+                                                  <div class="stat">
+                                                            <h2 class="stat-number">4</h2>
+                                                            <p class="stat-label">Interns</p>
+                                                  </div>
+                                        </div>
+                              </div>
+                              <div class="image">
+                                        <img class="image-content" src="IMAGES/JSON.png" alt="stats">
+                              </div>
+                    </div>
+          </section>
+
+          <footer class="footer">
+                    <div class="footer-container">
+                              <a class="logo">
+                                        <span class="text">SkillSync.com</span>
+                              </a>
+                              <p class="copyright-text">© 2023 SkillSync —
+                                        <a href="#" class="twitter-link" rel="noopener noreferrer">@aryanlathigara</a>
+                              </p>
+                    </div>
+          </footer>
+</body>
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+          $(document).ready(function () {
+                    $(".hover").hover(function () {
+                              $(".task").show(1500);
+                    });
+
+                    $(".header").hide().fadeIn(1500);
+
+                    $(".footer").hide().slideDown(1000);
+          });
+</script>
+
+</html>

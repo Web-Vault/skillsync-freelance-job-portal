@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Enroll Now </title>
+
+          <style>
+                    :root {
+                              --background-dodger-blue: #6da9ea;
+                              --background-pale-robin-egg-blue: #ade4db;
+                              --text-dark-gray: #222;
+                              --text-dark-orange: #f6ba6f;
+                              --text-slightly-darker-orange: #f0a246;
+                    }
+
+                    body {
+                              background-color: var(--background-dodger-blue);
+                    }
+
+                    /* header */
+                    .header {
+                              background-color: var(--background-dodger-blue);
+                              color: #333;
+                              padding: 20px 0;
+                    }
+
+                    .header-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                    }
+
+                    .header-content {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              align-items: center;
+                    }
+
+                    .page {
+                              font-weight: 700;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                              color: #333;
+                              font-size: 24px;
+                    }
+
+                    .logo-icon {
+                              width: 40px;
+                              height: 40px;
+                              padding: 5px;
+                              background-color: #3f51b5;
+                              border-radius: 50%;
+                    }
+
+                    .logo-text {
+                              margin-left: 10px;
+                    }
+
+                    .menu {
+                              display: flex;
+                              align-items: center;
+                    }
+
+                    .menu-link {
+                              margin-right: 20px;
+                              text-decoration: none;
+                              color: #333;
+                              font-size: 18px;
+                              transition: color 0.3s;
+                    }
+
+                    .menu-link:hover {
+                              color: #3f51b5;
+                              cursor: pointer;
+                    }
+
+                    .task {
+                              display: none;
+                    }
+
+                    /*  */
+
+                    .hero {
+                              background-color: var(--background-pale-robin-egg-blue);
+                              color: #333;
+                              text-align: center;
+                              padding: 50px 0;
+                              border-radius: 1rem 1rem 0 0 ;
+                    }
+
+                    .sec-1-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                              display: flex;
+                              flex-wrap: wrap;
+                              align-items: center;
+                    }
+
+                    .image-container {
+                              flex: 1;
+                              max-width: 50%;
+                    }
+
+                    .hero-image {
+                              max-width: 100%;
+                              height: auto;
+                              border-radius: 5px;
+                    }
+
+                    .text-container {
+                              flex: 1;
+                              max-width: 50%;
+                              text-align: left;
+                              padding: 20px;
+                    }
+
+                    .hero-title {
+                              font-size: 24px;
+                              font-weight: bold;
+                              margin-bottom: 20px;
+                    }
+
+                    .hero-description {
+                              font-size: 18px;
+                              line-height: 1.5;
+                              margin-bottom: 30px;
+                    }
+
+                    .button-container {
+                              display: flex;
+                              justify-content: center;
+                    }
+
+                    .primary-button {
+                              background-color: #3f51b5;
+                              color: #fff;
+                              border: none;
+                              padding: 10px 20px;
+                              font-size: 20px;
+                              border-radius: 5px;
+                              cursor: pointer;
+                              transition: background-color 0.3s;
+                              margin-right: 10px;
+                    }
+
+                    .primary-button:hover {
+                              background-color: #303f9f;
+                    }
+
+                    /*  */
+
+                    /* FORM */
+
+                    .form {
+                              background-color: var(--background-pale-robin-egg-blue);
+                              display: flex;
+                              justify-content: center;
+                              border-radius: 0 0 1rem 1rem;
+                    }
+
+                    form {
+                              /* border: 1px solid black; */
+                              margin: auto;
+                              padding: 1%;
+                              width: 50%;
+                              display: none;
+                    }
+
+                    .form-header {
+                              /* border: 1px solid black; */
+                              /* padding: 1%; */
+                              font-size: 30px;
+                              text-align: center;
+                              margin: 5%;
+                              padding: 2%;
+                              border-bottom: 2px solid #333;
+
+                    }
+
+                    .input {
+                              width: auto;
+                              /* height: ; */
+                              padding: 12px 20px;
+                              margin: 8px 0;
+                              box-sizing: border-box;
+                              /* border: 1px solid black; */
+                              border-radius: 1rem;
+                              /* background-color: #fff; */
+                    }
+
+                    .name {
+                              display: flex;
+                              /* border: 1px solid black; */
+                    }
+
+                    .fname,
+                    .lname {
+                              width: 100%;
+                              margin: 0 1% 0 1%;
+                    }
+
+                    .email {
+                              width: auto;
+                    }
+
+                    .age-exp {
+                              display: flex;
+                              /* border: 1px solid black; */
+                    }
+
+                    .age,
+                    .experience {
+                              width: 100%;
+                              margin: 0 1% 0 1%;
+                    }
+
+                    input,
+                    select,
+                    option {
+                              width: 100%;
+                              padding: 1rem;
+                              margin: 8px 1px;
+                              box-sizing: border-box;
+                              border: 1px solid black;
+                              border-radius: 4px;
+                              background-color: #fff;
+                    }
+
+                    label {
+                              font-weight: bold;
+                              font-size: 25px;
+                    }
+
+                    .error-message {
+                              color: #ff0000;
+                              font-size: 14px;
+                              font-weight: bold;
+                              display: block;
+                              margin: 0px 0 1%;
+                    }
+
+                    button {
+                              /* background-color: #4CAF50; */
+                              color: white;
+                              padding: 14px 20px;
+                              margin: 8px 0;
+                              border: none;
+                              cursor: pointer;
+                              width: 70%;
+                              opacity: 0.9;
+                    }
+
+                    button:hover {
+                              opacity: 1;
+                    }
+
+                    input[type=submit] {
+                              background-color: var(--background-dodger-blue);
+                              font-variant: small-caps;
+                    }
+
+                    .submit {
+                              color: white;
+                              padding: 14px 20px;
+                              margin: 8px 0;
+                              border: none;
+                              cursor: pointer;
+                              width: 30%;
+                              opacity: 0.9;
+                    }
+
+                    /*  */
+
+                    .footer {
+                              background-color: var(--background-dodger-blue);
+                              color: #333;
+                              padding: 20px 0;
+                              border-radius: 1rem;
+                    }
+
+                    .footer-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                              display: flex;
+                              align-items: center;
+                              flex-direction: column;
+                              text-align: center;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                    }
+
+                    .icon {
+                              fill: none;
+                              stroke: #333;
+                              stroke-width: 2;
+                    }
+
+                    .text {
+                              margin-left: 10px;
+                              font-size: 20px;
+                              font-weight: bold;
+                    }
+
+                    .copyright-text {
+                              font-size: 14px;
+                              margin-top: 10px;
+                    }
+
+                    .twitter-link {
+                              color: #333;
+                              text-decoration: none;
+                              margin-left: 5px;
+                    }
+          </style>
+</head>
+
+<body>
+          <header class="header">
+                    <div class="header-container">
+                              <div class="header-content">
+                                        <a class="logo">
+                                                  <span class="logo-text">SkillSync</span>
+                                        </a>
+                                        <nav class="menu">
+                                                  <a href="home.html" class="menu-link">Home Page</a>
+                                                  <a href="job-list.html" class="menu-link hover page">Job Listings</a>
+                                                  <div class="task">
+                                                            <a href="task-jobs.html" class="menu-link">Task Based
+                                                                      Jobs</a>
+                                                  </div>
+                                                  <a href="p&p.html" class="menu-link">Privacy & Policy</a>
+                                                  <a href="t&c.html" class="menu-link">Terms & Conditions</a>
+                                        </nav>
+                              </div>
+                    </div>
+          </header>
+
+          <section class="hero">
+                    <div class="sec-1-container">
+                              <div class="image-container">
+                                        <img class="hero-image" alt="hero" src="IMAGES/HEADER.png">
+                              </div>
+                              <div class="text-container">
+                                        <h1 class="hero-title">Empower Your Future: Enroll Today, Excel Tomorrow!
+                                        </h1>
+                                        <p class="hero-description"></p>
+                                        <div class="button-container">
+                                                  <button class="primary-button">Enroll</button>
+                                        </div>
+                              </div>
+                    </div>
+          </section>
+
+          <section class="form">
+                    <form action="" id="form" onsubmit="return validateForm()">
+                              <div class="form-header">
+                                        <label for="">Enroll By Just Filling The Form.</label>
+                              </div>
+
+                              <div class="input-container">
+                                        <div class="name">
+                                                  <div class="fname">
+                                                            <div class="txt">First Name</div>
+
+                                                            <div class="input">
+                                                                      <input type="text" name="f-name" id="f-name">
+                                                            </div>
+
+                                                            <span class="error-message" id="fname-error"></span>
+                                                  </div>
+
+                                                  <div class="lname">
+                                                            <div class="txt">Last Name</div>
+
+                                                            <div class="input">
+                                                                      <input type="text" name="l-name" id="l-name">
+                                                            </div>
+
+                                                            <span class="error-message" id="lname-error"></span>
+                                                  </div>
+                                        </div>
+
+                                        <div class="email">
+                                                  <div class="txt">Email</div>
+
+                                                  <div class="input">
+                                                            <input type="text" name="email" id="email">
+                                                  </div>
+
+                                                  <span class="error-message" id="email-error"></span>
+                                        </div>
+
+                                        <div class="age-exp">
+                                                  <div class="age">
+                                                            <div class="txt">Age</div>
+
+                                                            <div class="input">
+                                                                      <input type="text" name="age" id="age">
+                                                            </div>
+
+                                                            <span class="error-message" id="age-error"></span>
+                                                  </div>
+
+                                                  <div class="experience">
+                                                            <div class="txt">Experience</div>
+
+                                                            <div class="input">
+                                                                      <select name="experience" id="exp">
+                                                                                <option value="0">Enroll as intern
+                                                                                </option>
+                                                                                <option value="2">4 or less</option>
+                                                                                <option value="5">5 or more</option>
+                                                                      </select>
+                                                            </div>
+
+                                                            <span class="error-message" id="exp-error"></span>
+                                                  </div>
+                                        </div>
+
+                                        <div class="name">
+                                                  <div class="fname">
+                                                            <div class="txt">CV / Resume</div>
+
+                                                            <div class="input">
+                                                                      <input type="file" name="cv" id="cv">
+                                                            </div>
+
+                                                            <span class="error-message" id="cv-error"></span>
+                                                  </div>
+
+                                                  <div class="lname">
+                                                            <div class="txt">Projects [if any]</div>
+
+                                                            <div class="input">
+                                                                      <input type="file" name="projects" id="projects">
+                                                            </div>
+
+                                                            <span class="error-message" id="pro-error"></span>
+                                                  </div>
+                                        </div>
+
+                                        <div class="submit">
+                                                  <div class="input">
+                                                            <input type="submit" value="Submit">
+                                                  </div>
+                                        </div>
+                              </div>
+                    </form>
+          </section>
+
+          <footer class="footer">
+                    <div class="footer-container">
+                              <a class="logo">
+                                        <span class="text">SkillSync.com</span>
+                              </a>
+                              <p class="copyright-text">© 2023 SkillSync —
+                                        <a href="#" class="twitter-link" rel="noopener noreferrer">@aryanlathigara</a>
+                              </p>
+                    </div>
+          </footer>
+
+</body>
+
+<script>
+          function validateForm() {
+                    var firstName = document.getElementById("f-name").value;
+                    var lastName = document.getElementById("l-name").value;
+                    var email = document.getElementById("email").value;
+                    var age = document.getElementById("age").value;
+                    var experience = document.getElementById("exp").value;
+                    var cv = document.getElementById("cv").value;
+                    var projects = document.getElementById("projects").value;
+
+                    var fnameError = document.getElementById("fname-error");
+                    var lnameError = document.getElementById("lname-error");
+                    var emailError = document.getElementById("email-error");
+                    var ageError = document.getElementById("age-error");
+                    var expError = document.getElementById("exp-error");
+                    var cvError = document.getElementById("cv-error");
+                    var proError = document.getElementById("pro-error");
+
+                    fnameError.textContent = "";
+                    lnameError.textContent = "";
+                    emailError.textContent = "";
+                    ageError.textContent = "";
+                    expError.textContent = "";
+                    cvError.textContent = "";
+                    proError.textContent = "";
+
+                    var isValid = true;
+
+                    if (firstName === "") {
+                              fnameError.textContent = "First Name must not be empty";
+                              isValid = false;
+                    }
+
+                    if (!/^[a-zA-Z\s]+$/.test(firstName)) {
+                              fnameError.textContent = "First Name can only contain letters and spaces";
+                              isValid = false;
+                    }
+
+                    if (lastName === "") {
+                              lnameError.textContent = "Last Name must not be empty";
+                              isValid = false;
+                    }
+
+                    if (!/^[a-zA-Z\s]+$/.test(lastName)) {
+                              lnameError.textContent = "Last Name can only contain letters and spaces";
+                              isValid = false;
+                    }
+
+                    if (email === "") {
+                              emailError.textContent = "Email must not be empty";
+                              isValid = false;
+                    }
+
+                    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                              emailError.textContent = "Invalid email format";
+                              isValid = false;
+                    }
+
+                    if (age === "" || isNaN(age) || age < 18) {
+                              ageError.textContent = "Age must be a valid number";
+                              isValid = false;
+                    }
+
+                    if (experience === "") {
+                              expError.textContent = "Please select your experience level";
+                              isValid = false;
+                    }
+
+                    if (cv === "") {
+                              cvError.textContent = "Please upload your CV/Resume";
+                              isValid = false;
+                    }
+
+                    // if (projects === "") {
+                    //           proError.textContent = "Please upload any projects (if any)";
+                    //           isValid = false;
+                    // }
+
+                    if (isValid == true) {
+                              alert("Enrolled Successfully ! The company Will mail you Within the  3 working days.");
+                    }
+
+                    return isValid;
+
+                    $(document).ready(function () {
+                              if (isValid == true) {
+                                        $(".form").hide(50000);
+                              }
+                    });
+          }
+</script>
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+          $(document).ready(function () {
+                    $(".primary-button").click(function () {
+                              $("#form").slideDown(2000);
+                    });
+
+                    $(".hover").hover(function () {
+                              $(".task").show(1500);
+                    });
+
+                    var i = 0;
+                    var txt = "Welcome to the gateway of career opportunities! Join our dynamic team at by enrolling through SkillSync. Discover a plethora of exciting job opportunities tailored to your skills and ambitions. Take the first step towards a rewarding career with us - where talent meets opportunity!";
+                    var speed = 50;
+
+                    function typeWriter() {
+                              if (i < txt.length) {
+                                        $(".hero-description").append(txt.charAt(i));
+                                        i++;
+                                        setTimeout(typeWriter, speed);
+                              }
+                    }
+
+                    typeWriter();
+
+                    $(".header").hide().fadeIn(1500);
+
+                    $(".footer").hide().slideDown(1000);
+          });
+</script>
+
+</html>

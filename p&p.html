@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+          <style>
+                    :root {
+                              --background-dodger-blue: #6da9ea;
+                              --background-pale-robin-egg-blue: #ade4db;
+                              --text-dark-gray: #222;
+                              --text-dark-orange: #f6ba6f;
+                              --text-slightly-darker-orange: #f0a246;
+                    }
+
+                    body {
+                              background-color: var(--background-dodger-blue);
+                    }
+
+                    /* header */
+                    .header {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              padding: 20px 0;
+                    }
+
+                    .header-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                    }
+
+                    .header-content {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              align-items: center;
+                    }
+
+                    .page {
+                              font-weight: 700;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              font-size: 24px;
+                    }
+
+                    .logo-icon {
+                              width: 40px;
+                              height: 40px;
+                              padding: 5px;
+                              /* background-color: #3f51b5; */
+                              border-radius: 50%;
+                    }
+
+                    .logo-text {
+                              margin-left: 10px;
+                    }
+
+                    .menu {
+                              display: flex;
+                              align-items: center;
+                    }
+
+                    .menu-link {
+                              margin-right: 20px;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              font-size: 18px;
+                              transition: color 0.3s;
+                    }
+
+                    .menu-link:hover {
+                              /* color: #3f51b5; */
+                              cursor: pointer;
+                    }
+
+                    .task {
+                              display: none;
+                    }
+
+                    /*  */
+
+                    main {
+                              max-width: 800px;
+                              margin: 0 auto;
+                              padding: 20px;
+                              background-color: var(--background-dodger-blue);
+                              box-shadow:  0 0 10px rgba(0, 0, 0, 0.3);
+                    }
+                    
+                    section {
+                              margin-bottom: 20px;
+                              background-color: var(--background-pale-robin-egg-blue);
+                              padding: 20px;
+                              border-radius: 8px;
+                              box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                    }
+
+                    h2 {
+                              font-size: 24px;
+                              font-weight: bold;
+                              color: var(--text-dark-gray);
+                              margin-bottom: 10px;
+                    }
+
+                    p {
+                              font-size: 16px;
+                              line-height: 1.6;
+                              color: var(--text-dark-gray);
+                    }
+
+                    a {
+                              color: #3f51b5;
+                              text-decoration: none;
+                              transition: color 0.3s;
+                    }
+
+                    .tnc:hover {
+                              color: var(--text-slightly-darker-orange);
+                    }
+
+                    /*  */
+
+                    .footer {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              padding: 20px 0;
+                              border-radius: 1rem;
+                    }
+
+                    .footer-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                              display: flex;
+                              align-items: center;
+                              flex-direction: column;
+                              text-align: center;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                    }
+
+                    .text {
+                              margin-left: 10px;
+                              font-size: 20px;
+                              font-weight: bold;
+                    }
+
+                    .copyright-text {
+                              font-size: 14px;
+                              margin-top: 10px;
+                    }
+
+                    .twitter-link {
+                              color: var(--text-dark-gray);
+                              text-decoration: none;
+                              margin-left: 5px;
+                    }
+          </style>
+          <title>Privacy & Policy</title>
+</head>
+
+<body>
+          <header class="header">
+                    <div class="header-container">
+                              <div class="header-content">
+                                        <a class="logo">
+                                                  <span class="logo-text">SkillSync.com</span>
+                                        </a>
+                                        <nav class="menu">
+                                                  <a href="home.html" class="menu-link">Home Page</a>
+                                                  <a href="job-list.html" class="menu-link hover">Job Listings</a>
+                                                  <div class="task">
+                                                            <a href="task-jobs.html" class="menu-link">Task Based
+                                                                      Jobs</a>
+                                                  </div>
+                                                  <a href="p&p.html" class="menu-link page">Privacy & Policy</a>
+                                                  <a href="t&c.html" class="menu-link">Terms & Conditions</a>
+                                        </nav>
+                              </div>
+                    </div>
+          </header>
+          <main class="main">
+                    <section>
+                              <h2>Data Collection</h2>
+                              <p>We collect user data, including names, email addresses, and user profiles, to provide
+                                        our job listing services.</p>
+                    </section>
+
+                    <section>
+                              <h2>Data Usage</h2>
+                              <p>We use the collected data to facilitate job listings, communicate with users, and
+                                        personalize their experience.</p>
+                    </section>
+
+                    <section>
+                              <h2>Cookies and Tracking</h2>
+                              <p>We use cookies and tracking technologies to improve user experience and for analytics.
+                                        Users can manage their preferences.</p>
+                    </section>
+
+                    <section>
+                              <h2>User Accounts</h2>
+                              <p>User accounts may require personal information. Learn how this data is stored, secured,
+                                        and used.</p>
+                    </section>
+
+                    <section>
+                              <h2>Job Listings</h2>
+                              <p>Learn about user-generated content, moderation, and posting guidelines for job listings
+                                        on our platform.</p>
+                    </section>
+
+                    <section>
+                              <h2>Data Security</h2>
+                              <p>We have robust security measures in place to protect user data from unauthorized access
+                                        and breaches.</p>
+                    </section>
+
+                    <section>
+                              <h2>Data Sharing</h2>
+                              <p>We may share user data with third parties, such as employers or advertisers, for
+                                        specific purposes. Discover the details.</p>
+                    </section>
+
+                    <section>
+                              <h2>Legal Compliance</h2>
+                              <p>We ensure compliance with relevant data protection laws, including GDPR for users in
+                                        the European Union.</p>
+                    </section>
+
+                    <section>
+                              <h2>User Rights</h2>
+                              <p>Users have rights to access, rectify, and delete their data. Find instructions on how
+                                        to exercise these rights.</p>
+                    </section>
+
+                    <section>
+                              <h2>Data Retention</h2>
+                              <p>Discover how long user data is stored and the criteria for determining retention
+                                        periods.</p>
+                    </section>
+
+                    <section>
+                              <h2>Children's Privacy</h2>
+                              <p>Our platform is not intended for users under a certain age. Understand how we handle
+                                        data from minors.</p>
+                    </section>
+
+                    <!-- ... (previous sections) -->
+
+                    <section>
+                              <h2>Communication</h2>
+                              <p>Learn about how we communicate with users, including email notifications, updates, and
+                                        options to opt out of promotional emails.</p>
+                    </section>
+
+                    <section>
+                              <h2>Account Deletion</h2>
+                              <p>Find out how to request the deletion of your account and associated data from our
+                                        platform.</p>
+                    </section>
+
+                    <section>
+                              <h2>Third-Party Links</h2>
+                              <p>We may provide links to third-party websites. Discover how their privacy and policies
+                                        differ from ours.</p>
+                    </section>
+
+                    <section>
+                              <h2>Data Transfer</h2>
+                              <p>If you are outside the United States, your data may be transferred to and stored in the
+                                        United States. Learn more about this process.</p>
+                    </section>
+
+                    <section>
+                              <h2>Consent</h2>
+                              <p>Understand how we obtain user consent, especially regarding data collection and usage.
+                              </p>
+                    </section>
+
+                    <section>
+                              <h2>Dispute Resolution</h2>
+                              <p>Learn how disputes related to privacy issues are handled, including arbitration,
+                                        mediation, or other mechanisms.</p>
+                    </section>
+
+                    <section>
+                              <h2>Liability Disclaimer</h2>
+                              <p>Read our liability disclaimer that limits our legal responsibility for issues beyond
+                                        our control.</p>
+                    </section>
+
+                    <section>
+                              <h2>Terms and Conditions</h2>
+                              <p>Link to our website's terms and conditions page for users to review and understand the
+                                        usage terms.</p>
+                    </section>
+
+                    <section>
+                              <h2>Accessibility</h2>
+                              <p>Our privacy and policy page is designed to be accessible to all users, including those
+                                        with disabilities.</p>
+                    </section>
+
+                    <section>
+                              <h2>Updates to Privacy Policy</h2>
+                              <p>Find out how and when we update our privacy policy and how users are notified of
+                                        changes.</p>
+                    </section>
+
+
+                    <section>
+                              <h2>Terms and Conditions</h2>
+                              <p>Read and understand our website's terms and conditions. By using our platform, you
+                                        agree to abide by these terms.</p>
+                              <a class="tnc" href="t&c.html">Read our Terms and Conditions</a>
+                    </section>
+          </main>
+
+          <footer class="footer">
+                    <div class="footer-container">
+                              <a class="logo">
+                                        <span class="text">SkillSync.com</span>
+                              </a>
+                              <p class="copyright-text">© 2023 SkillSync —
+                                        <a href="#" class="twitter-link" rel="noopener noreferrer">@aryanlathigara</a>
+                              </p>
+                    </div>
+          </footer>
+</body>
+
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+          $(document).ready(function () {
+                    $(".hover").hover(function () {
+                              $(".task").show(1500);
+                    });
+
+                    $(".header").hide().fadeIn(1500);
+
+                    $(".footer").hide().slideDown(1000);
+          });
+</script>
+
+</html>

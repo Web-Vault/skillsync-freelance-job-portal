@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+          <style>
+                    :root {
+                              --background-dodger-blue: #6da9ea;
+                              --background-pale-robin-egg-blue: #ade4db;
+                              --text-dark-gray: #222;
+                              --text-dark-orange: #f6ba6f;
+                              --text-slightly-darker-orange: #f0a246;
+                    }
+
+                    body {
+                              background-color: var(--background-dodger-blue);
+                    }
+
+                    /* header */
+                    .header {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              padding: 20px 0;
+                    }
+
+                    .header-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                    }
+
+                    .header-content {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              align-items: center;
+                    }
+
+                    .page {
+                              font-weight: 700;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              font-size: 24px;
+                    }
+
+                    .logo-icon {
+                              width: 40px;
+                              height: 40px;
+                              padding: 5px;
+                              /* background-color: #3f51b5; */
+                              border-radius: 50%;
+                    }
+
+                    .logo-text {
+                              margin-left: 10px;
+                    }
+
+                    .menu {
+                              display: flex;
+                              align-items: center;
+                    }
+
+                    .menu-link {
+                              margin-right: 20px;
+                              text-decoration: none;
+                              color: var(--text-dark-gray);
+                              font-size: 18px;
+                              transition: color 0.3s;
+                    }
+
+                    .menu-link:hover {
+                              /* color: #3f51b5; */
+                              cursor: pointer;
+                    }
+
+                    .task {
+                              display: none;
+                    }
+
+                    /*  */
+
+                    main {
+                              max-width: 800px;
+                              margin: 0 auto;
+                              padding: 20px;
+                              background-color: var(--background-dodger-blue);
+                              box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                    }
+
+                    section {
+                              margin-bottom: 20px;
+                              background-color: var(--background-pale-robin-egg-blue);
+                              padding: 20px;
+                              border-radius: 8px;
+                              box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                    }
+
+                    h2 {
+                              font-size: 24px;
+                              font-weight: bold;
+                              color: var(--text-dark-gray);
+                              margin-bottom: 10px;
+                    }
+
+                    p {
+                              font-size: 16px;
+                              line-height: 1.6;
+                              color: var(--text-dark-gray);
+                    }
+
+                    a {
+                              color: #3f51b5;
+                              text-decoration: none;
+                              transition: color 0.3s;
+                    }
+
+                    .tnc:hover {
+                              color: var(--text-slightly-darker-orange);
+                    }
+
+                    /*  */
+
+                    .footer {
+                              background-color: var(--background-dodger-blue);
+                              color: var(--text-dark-gray);
+                              padding: 20px 0;
+                              border-radius: 1rem;
+                    }
+
+                    .footer-container {
+                              max-width: 1200px;
+                              margin: 0 auto;
+                              padding: 0 15px;
+                              display: flex;
+                              align-items: center;
+                              flex-direction: column;
+                              text-align: center;
+                    }
+
+                    .logo {
+                              display: flex;
+                              align-items: center;
+                              text-decoration: none;
+                    }
+
+                    .text {
+                              margin-left: 10px;
+                              font-size: 20px;
+                              font-weight: bold;
+                    }
+
+                    .copyright-text {
+                              font-size: 14px;
+                              margin-top: 10px;
+                    }
+
+                    .twitter-link {
+                              color: var(--text-dark-gray);
+                              text-decoration: none;
+                              margin-left: 5px;
+                    }
+          </style>
+          <title>Privacy & Policy</title>
+</head>
+
+<body>
+          <header class="header">
+                    <div class="header-container">
+                              <div class="header-content">
+                                        <a class="logo">
+                                                  <span class="logo-text">SkillSync.com</span>
+                                        </a>
+                                        <nav class="menu">
+                                                  <a href="home.html" class="menu-link">Home Page</a>
+                                                  <a href="job-list.html" class="menu-link hover">Job Listings</a>
+                                                  <div class="task">
+                                                            <a href="task-jobs.html" class="menu-link">Task Based
+                                                                      Jobs</a>
+                                                  </div>
+                                                  <a href="p&p.html" class="menu-link">Privacy & Policy</a>
+                                                  <a href="t&c.html" class="menu-link page">Terms & Conditions</a>
+                                        </nav>
+                              </div>
+                    </div>
+          </header>
+          <main class="main">
+                    <section>
+                              <h2>Acceptance of Terms</h2>
+                              <p>By using this website, you agree to abide by these terms and
+                                        conditions. If you do not agree, please do not use the
+                                        website.</p>
+                    </section>
+
+                    <section>
+                              <h2>Intellectual Property</h2>
+                              <p>All content and materials on this website are protected by
+                                        intellectual property rights and may not be used without
+                                        permission.</p>
+                    </section>
+
+                    <section>
+                              <h2>User Responsibilities</h2>
+                              <p>Users are responsible for their actions and content posted on the
+                                        website, and must not engage in illegal or harmful
+                                        activities.</p>
+                    </section>
+
+                    <section>
+                              <h2>Privacy and Data Use</h2>
+                              <p>Our privacy policy outlines how we collect, use, and protect user
+                                        data. By using the website, you agree to our privacy policy.
+                              </p>
+                    </section>
+
+                    <section>
+                              <h2>Prohibited Content</h2>
+                              <p>Users must not post or share content that is offensive, harmful, or
+                                        violates our content guidelines. We reserve the right to
+                                        remove such content.</p>
+                    </section>
+
+                    <section>
+                              <h2>Account Security</h2>
+                              <p>Users are responsible for maintaining the security of their
+                                        accounts and must not share login credentials with others.
+                              </p>
+                    </section>
+
+                    <section>
+                              <h2>Termination of Services</h2>
+                              <p>We reserve the right to terminate or suspend user accounts or
+                                        services if users violate these terms and conditions.</p>
+                    </section>
+
+                    <section>
+                              <h2>Dispute Resolution</h2>
+                              <p>Disputes related to these terms and conditions will be resolved
+                                        through arbitration or mediation, as outlined in our dispute
+                                        resolution policy.</p>
+                    </section>
+
+                    <section>
+                              <h2>Changes to Terms</h2>
+                              <p>We may update these terms and conditions. Users will be notified of
+                                        changes, and continued use of the website implies acceptance
+                                        of the new terms.</p>
+                    </section>
+          </main>
+
+          <footer class="footer">
+                    <div class="footer-container">
+                              <a class="logo">
+                                        <span class="text">SkillSync.com</span>
+                              </a>
+                              <p class="copyright-text">© 2023 SkillSync —
+                                        <a href="#" class="twitter-link" rel="noopener noreferrer">@aryanlathigara</a>
+                              </p>
+                    </div>
+          </footer>
+</body>
+
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+          $(document).ready(function () {
+                    $(".hover").hover(function () {
+                              $(".task").show(1500);
+                    });
+
+                    $(".header").hide().fadeIn(1500);
+
+                    $(".footer").hide().slideDown(1000);
+          });
+</script>
+
+</html>
